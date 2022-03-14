@@ -11,12 +11,10 @@
 </template>
 
 <script setup>
-defineProps({
-  products: {
-    type: Array,
-    required: true,
-  },
-});
+import { computed } from "vue";
+import { useStore } from "vuex";
+const store = useStore();
+const products = computed(() => store.state.products);
 </script>
 
 <style scoped>

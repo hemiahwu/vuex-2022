@@ -1,6 +1,6 @@
 <template>
   <div id="product-list-one">
-    <h2>组件1</h2>
+    <h2>组件1 {{ $store.state.products }}</h2>
     <ul>
       <li v-for="product in products" :key="product.name">
         <span class="name">{{ product.name }}</span>
@@ -11,12 +11,10 @@
 </template>
 
 <script setup>
-defineProps({
-  products: {
-    type: Array,
-    required: true,
-  },
-});
+import { computed } from "vue";
+import { useStore } from "vuex";
+const store = useStore();
+const products = computed(() => store.state.products);
 </script>
 
 <style scoped>
