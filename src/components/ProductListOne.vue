@@ -1,10 +1,10 @@
 <template>
   <div id="product-list-one">
-    <h2>组件1 {{ $store.state.products }}</h2>
+    <h2>组件1 {{ $store.getters.getProducts }}</h2>
     <ul>
-      <li v-for="product in products" :key="product.name">
+      <li v-for="product in resetProducts" :key="product.name">
         <span class="name">{{ product.name }}</span>
-        <span class="money">¥{{ product.money }}</span>
+        <span class="money">{{ product.money }}</span>
       </li>
     </ul>
   </div>
@@ -15,6 +15,7 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
 const products = computed(() => store.state.products);
+const resetProducts = computed(() => store.getters.resetProducts);
 </script>
 
 <style scoped>

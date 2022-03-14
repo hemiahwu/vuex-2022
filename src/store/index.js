@@ -10,6 +10,20 @@ export default createStore({
       { name: "吴海洋", money: 10 },
     ],
   },
+  getters: {
+    // 通过getters获取全局状态
+    getProducts: (state) => {
+      return state.products;
+    },
+    resetProducts: (state) => {
+      return state.products.map((product) => {
+        return {
+          name: `**${product.name}**`,
+          money: `¥${product.money / 2}`,
+        };
+      });
+    },
+  },
   mutations: {},
   actions: {},
   modules: {},
