@@ -33,6 +33,13 @@ export default createStore({
       });
     },
   },
-  actions: {},
+  actions: {
+    reduceSalary: ({ commit }, payload) => {
+      // actions中处理的都是异步的操作
+      setTimeout(() => {
+        commit("reduceSalary", payload);
+      }, 2000);
+    },
+  },
   modules: {},
 });

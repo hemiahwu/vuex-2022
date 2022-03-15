@@ -23,7 +23,8 @@ const reduceSalary = (amount) => {
   //   product.money -= 1;
   // });
 
-  store.commit("reduceSalary", amount);
+  // store.commit("reduceSalary", amount);// mutations调用方法
+  store.dispatch("reduceSalary", amount);
 };
 </script>
 
