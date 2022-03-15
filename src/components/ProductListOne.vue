@@ -1,6 +1,6 @@
 <template>
   <div id="product-list-one">
-    <h2>组件1 {{ $store.getters.getProducts }}</h2>
+    <h2>组件1 {{ $store.state.countModule.count }}</h2>
     <ul>
       <li v-for="product in resetProducts" :key="product.name">
         <span class="name">{{ product.name }}</span>
