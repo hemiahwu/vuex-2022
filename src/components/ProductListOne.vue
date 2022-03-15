@@ -7,6 +7,7 @@
         <span class="money">{{ product.money }}</span>
       </li>
     </ul>
+    <button @click="reduceSalary(4)">降低收入</button>
   </div>
 </template>
 
@@ -16,6 +17,14 @@ import { useStore } from "vuex";
 const store = useStore();
 const products = computed(() => store.state.products);
 const resetProducts = computed(() => store.getters.resetProducts);
+
+const reduceSalary = (amount) => {
+  // store.state.products.forEach((product) => {
+  //   product.money -= 1;
+  // });
+
+  store.commit("reduceSalary", amount);
+};
 </script>
 
 <style scoped>

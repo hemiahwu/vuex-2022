@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 
 export default createStore({
+  strict: true,
   state: {
     // 定义状态(定义全局属性,可供任意组件调度)
     products: [
@@ -24,7 +25,14 @@ export default createStore({
       });
     },
   },
-  mutations: {},
+  mutations: {
+    // 专门用来修改全局状态
+    reduceSalary: (state, payload) => {
+      state.products.forEach((product) => {
+        product.money -= payload;
+      });
+    },
+  },
   actions: {},
   modules: {},
 });
